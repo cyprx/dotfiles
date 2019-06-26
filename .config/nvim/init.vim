@@ -30,7 +30,8 @@ call plug#end()
 
 """"""""""" GENERAL OPTIONS """""""""""
 set number
-set cursorline
+set relativenumber
+set lazyredraw
 set showmatch
 set hlsearch
 set clipboard+=unnamedplus
@@ -40,6 +41,10 @@ set noswapfile
 set nowrap
 set completeopt-=preview
 set encoding=utf-8
+
+filetype on
+filetype indent on
+filetype plugin on
 
 syntax enable               
 
@@ -57,7 +62,6 @@ autocmd Filetype ruby set tabstop=2
 """"""""""" THEMES AND COLORS """""""""""
 set t_Co=256
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-set termguicolors
 colorscheme gruvbox
 set background=dark
 
@@ -69,6 +73,7 @@ let g:indent_guides_enable_on_vim_startup = 1
 
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
+let g:ale_cache_executable_check_failures = 1
 let g:ale_python_flake8_use_global=0
 let g:ale_python_flake8_executable = 'python3'
 
