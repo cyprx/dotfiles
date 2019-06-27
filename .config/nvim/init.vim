@@ -30,13 +30,15 @@ call plug#end()
 
 """"""""""" GENERAL OPTIONS """""""""""
 set number
-set relativenumber
+" set relativenumber
+set cursorline
 set lazyredraw
 set showmatch
 set hlsearch
 set clipboard+=unnamedplus
 set laststatus=2
 set noshowmode
+set noshowcmd
 set noswapfile
 set nowrap
 set completeopt-=preview
