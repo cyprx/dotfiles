@@ -1,6 +1,10 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/go/bin:$PATH
 export GOPATH=$HOME/workspace/go
+export M2_HOME=/Users/lap00281/.m2/wrapper/dists/apache-maven-3.6.0-bin/2dakv70gp803gtm5ve1ufmvttn/apache-maven-3.6.0
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/go/bin:$GOPATH/bin:$M2_HOME/bin:$HOME/.npm-global/bin:$PATH
+export ZSH_DOTENV_FILE=variables.env
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -77,6 +81,7 @@ plugins=(
     zsh-syntax-highlighting
     zsh-autosuggestions
     hacker-quotes
+    dotenv
 )
 
 source $ZSH/oh-my-zsh.sh
