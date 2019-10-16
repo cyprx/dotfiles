@@ -1,8 +1,11 @@
 # If you come from bash you might have to change your $PATH.
-export GOPATH=$HOME/workspace/go
+export GOPATH=$HOME/go
 export M2_HOME=/Users/lap00281/.m2/wrapper/dists/apache-maven-3.6.0-bin/2dakv70gp803gtm5ve1ufmvttn/apache-maven-3.6.0
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/go/bin:$GOPATH/bin:$M2_HOME/bin:$HOME/.npm-global/bin:$PATH
+export PATH=$HOME/bin:/usr/local/opt/llvm/bin:/usr/local/bin:/usr/local/go/bin:$GOPATH/bin:$M2_HOME/bin:$HOME/.npm-global/bin:$PATH
 export ZSH_DOTENV_FILE=variables.env
+export LDFLAGS="-L/usr/local/opt/llvm/lib"
+export CPPFLAGS="-I/usr/local/opt/llvm/include"
+
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
@@ -80,7 +83,6 @@ plugins=(
     git
     zsh-syntax-highlighting
     zsh-autosuggestions
-    hacker-quotes
     dotenv
 )
 
@@ -92,6 +94,7 @@ source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
+DISABLE_MAGIC_FUNCTIONS=true
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -114,3 +117,11 @@ alias gb='git branch'
 alias vim='nvim'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/cyprx/workspace/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/cyprx/workspace/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/cyprx/workspace/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/cyprx/workspace/google-cloud-sdk/completion.zsh.inc'; fi
