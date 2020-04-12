@@ -6,9 +6,6 @@ call plug#begin()
 " automake
 Plug 'neomake/neomake'
 
-" support typescript
-Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-
 " display indent
 Plug 'Yggdroot/indentLine'
 
@@ -16,10 +13,21 @@ Plug 'Yggdroot/indentLine'
 Plug 'fatih/vim-go'
 
 " colorscheme
-Plug 'fenetikm/falcon'
+" Plug 'fenetikm/falcon'
+" Plug 'sainnhe/vim-color-forest-night'
+" Plug 'fxn/vim-monochrome'
+" Plug 'relastle/bluewery.vim'
+" Plug 'arcticicestudio/nord-vim'
+" Plug 'ayu-theme/ayu-vim'
+" Plug 'rakr/vim-one'
+Plug 'NLKNguyen/papercolor-theme'
 
 " go autocompletion
 Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
+
+" javascript js/jsx
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
 
 " support markdown
 Plug 'plasticboy/vim-markdown'
@@ -30,9 +38,9 @@ Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 " support git
 Plug 'tpope/vim-fugitive'
 
-" quick search fzf
+ " quick search fzf
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf.vim'
 
 " nerdtree explorer
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -45,6 +53,12 @@ Plug 'ryanoasis/vim-devicons'
 
 " lightweight statusline
 Plug 'itchyny/lightline.vim'
+
+" startup page
+Plug 'mhinz/vim-startify'
+
+" auto pairs
+Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
@@ -70,7 +84,7 @@ filetype on
 filetype indent on
 filetype plugin on
 
-syntax enable               
+syntax enable
 
 set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
@@ -82,21 +96,42 @@ autocmd Filetype ruby set ts=2 sts=2 sw=2
 autocmd Filetype html set ts=2 sts=2 sw=2
 autocmd Filetype yaml set ts=2 sts=2 sw=2
 autocmd Filetype javascript set ts=2 sts=2 sw=2
+autocmd Filetype json set ts=2 sts=2 sw=2
 
 
 """"""""""" THEMES AND COLORS """""""""""
 """""""""""""""""""""""""""""""""""""""""
-set t_Co=256
-set termguicolors
-colorscheme falcon 
-set background=dark
+" set t_Co=256
+" colorscheme falcon
+" set background=dark
+" colorscheme bluewery-light
+if exists('+termguicolors') && ($TERM == "st-256color" || $TERM == "tmux-256color")
+	let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+	set termguicolors
+endif
+" 
+" let g:nord_italic = 1
+" let g:nord_italic_comments = 1
+" let g:nord_underline = 1
+" let g:nord_uniform_status_lines = 1
+" let g:nord_uniform_diff_background = 1
+" let g:nord_cursor_line_number_background = 1
+" colorscheme nord
+set termguicolors     " enable true colors support
+colorscheme PaperColor
+set background=light
+
 
 """"""""""" PLUGIN OPTIONS """""""""""
 """"""""""""""""""""""""""""""""""""""
 let g:NERDTreeWinPos = "right"
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
+let g:NERDTreeChDirMode = 2
 
 let g:indent_guides_enable_on_vim_startup = 1
+
+let g:vim_markdown_folding_disabled = 1
 
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
@@ -105,8 +140,9 @@ let g:ale_python_flake8_use_global=0
 let g:ale_python_flake8_executable = 'python3'
 
 let g:python3_host_prog = 'python3'
+
 let g:lightline = {
-    \ 'colorscheme': 'falcon',
+    \ 'colorscheme': 'PaperColor',
     \ 'active': {
     \   'left': [['mode', 'paste'], [ 'gitbranch' ], ['filename', 'modified']],
     \   'right': [ ['linter_warnings', 'linter_errors', 'linter_ok'], ['lineinfo'], ['percent'], ['readonly']]
@@ -159,13 +195,14 @@ augroup _lightline
 "  autocmd ColorScheme * call s:UpdateLightlineColorScheme()
 augroup END
 
-
 """"""""""" KEY MAPPING """""""""""
 """""""""""""""""""""""""""""""""""
 let mapleader="\\"
 nmap <C-n> :NERDTreeToggle<CR>
 nmap <leader><space> :FZF<CR>
 nnoremap \d :bp<cr>:bd #<cr>
+nnoremap <C-'> b^i'<esc>A'<esc>
+
 
 
 """"""""""""""""""""""""""""""""""""""""
