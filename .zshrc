@@ -116,6 +116,7 @@ alias gs='git status'
 alias gb='git branch'
 alias vim='nvim'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias kc='kubectl'
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

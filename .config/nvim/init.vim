@@ -32,6 +32,9 @@ Plug 'mxw/vim-jsx'
 " support markdown
 Plug 'plasticboy/vim-markdown'
 
+" support latex
+Plug 'lervag/vimtex'
+
 " autocompletion
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 
@@ -132,6 +135,7 @@ let g:NERDTreeChDirMode = 2
 let g:indent_guides_enable_on_vim_startup = 1
 
 let g:vim_markdown_folding_disabled = 1
+let g:vimtex_view_method = 'mupdf'
 
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
