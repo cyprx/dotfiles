@@ -3,15 +3,18 @@ export GOPATH=$HOME/go
 export M2_HOME=/Users/lap00281/.m2/wrapper/dists/apache-maven-3.6.0-bin/2dakv70gp803gtm5ve1ufmvttn/apache-maven-3.6.0
 export PATH=$HOME/bin:/usr/local/opt/llvm/bin:/usr/local/bin:/usr/local/go/bin:$GOPATH/bin:$M2_HOME/bin:$HOME/.npm-global/bin:$PATH
 export ZSH_DOTENV_FILE=variables.env
+export PATH=/usr/local/opt/mysql@5.7/bin:$PATH
 export LDFLAGS="-L/usr/local/opt/llvm/lib"
 export CPPFLAGS="-I/usr/local/opt/llvm/include"
 
+# [[ $commands[kubectl] ]] && source <(kubectl completion zsh) # add autocomplete permanently to your zsh shell
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export TERM=xterm-256color
+export BAT_THEME="base16" # set default theme for bat
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -117,6 +120,7 @@ alias gb='git branch'
 alias vim='nvim'
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias kc='kubectl'
+alias cat='bat'
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
